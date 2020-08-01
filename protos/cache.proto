@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package cache;
+
+service CacheHub {
+  rpc GetStatus(StatusRequest) returns (StatusResponse) {}
+}
+
+message StatusRequest {
+  string name = 1;
+}
+
+message StatusResponse {
+  string message = 1;
+}

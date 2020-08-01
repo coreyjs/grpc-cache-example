@@ -9,8 +9,14 @@
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="RVM: ruby-2.6.5 [cache]" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.1.4, rbenv: 2.6.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.1.4, RVM: ruby-2.6.5 [cache]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="dalli (v2.7.10, RVM: ruby-2.6.5 [cache]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="google-protobuf (v3.12.4, RVM: ruby-2.6.5 [cache]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="googleapis-common-protos-types (v1.0.5, RVM: ruby-2.6.5 [cache]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="grpc (v1.30.2, RVM: ruby-2.6.5 [cache]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="grpc-tools (v1.30.2, RVM: ruby-2.6.5 [cache]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="minitest (v5.11.3, RVM: ruby-2.6.5 [cache]) [gem]" level="application" />
   </component>
 </module>
