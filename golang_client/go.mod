@@ -1,4 +1,4 @@
-module github.com/coreyjs/grpc-cache-ex
+module github.com/coreyjs/grpc-cache-example
 
 go 1.14
 

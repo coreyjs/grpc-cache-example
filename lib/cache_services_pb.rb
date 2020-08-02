@@ -15,6 +15,7 @@ module Cache
       self.service_name = 'cache.CacheHub'
 
       rpc :GetStatus, Cache::StatusRequest, Cache::StatusResponse
+      rpc :Upload, stream(Cache::Chunk), Cache::UploadStatus
     end
 
     Stub = Service.rpc_stub_class

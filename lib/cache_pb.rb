@@ -11,10 +11,25 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "cache.StatusResponse" do
       optional :message, :string, 1
     end
+    add_message "cache.Chunk" do
+      optional :Content, :bytes, 1
+    end
+    add_message "cache.UploadStatus" do
+      optional :Message, :string, 1
+      optional :Code, :enum, 2, "cache.UploadStatusCode"
+    end
+    add_enum "cache.UploadStatusCode" do
+      value :Unknown, 0
+      value :Ok, 1
+      value :Failed, 2
+    end
   end
 end
 
 module Cache
   StatusRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.StatusRequest").msgclass
   StatusResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.StatusResponse").msgclass
+  Chunk = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.Chunk").msgclass
+  UploadStatus = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.UploadStatus").msgclass
+  UploadStatusCode = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.UploadStatusCode").enummodule
 end

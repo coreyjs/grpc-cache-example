@@ -4,12 +4,31 @@ package cache;
 
 service CacheHub {
   rpc GetStatus(StatusRequest) returns (StatusResponse) {}
+  rpc Upload(stream Chunk) returns (UploadStatus) {}
 }
 
+// Used for our healthcheck/status check
 message StatusRequest {
   string name = 1;
 }
 
 message StatusResponse {
   string message = 1;
+}
+
+
+// Used for file transer
+message Chunk {
+  bytes Content = 1;
+}
+
+enum UploadStatusCode {
+  Unknown = 0;
+  Ok = 1;
+  Failed = 2;
+}
+
+message UploadStatus {
+  string Message = 1;
+  UploadStatusCode Code = 2;
 }
