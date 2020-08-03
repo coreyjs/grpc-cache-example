@@ -1,5 +1,72 @@
-This is an example project of connecting two distinct applications over gRPC.  
+### This is an example project of connecting two distinct applications over gRPC.  
 
+
+The gRPC server is written in ruby, and can be ran from the main directory, `ruby ./server.rb`.  This starts a gRPC server on port `50051`.
+
+```ruby
+class CacheHubServer
+  class << self
+    def start
+      start_grpc_server
+    end
+
+    private
+    def start_grpc_server
+      puts 'cache hub server up'
+      @server = GRPC::RpcServer.new
+      @server.add_http2_port('0.0.0.0:50052', :this_port_is_insecure)
+      @server.handle(CacheHubService)
+      @server.run_till_terminated
+    end
+  end
+end
+```
+---
+
+There are currently only 2 methods defined in the `cache.proto` file:
+
+### StatusRequest
+- Used for basic health check on the server
+
+### Upload
+- Used as the main file transfer stream method
+
+```bash
+service CacheHub {
+  rpc GetStatus(StatusRequest) returns (StatusResponse) {}
+  rpc Upload(stream Chunk) returns (UploadStatus) {}
+}
+```
+---
+### Client
+The gRPC client in written in Go, and can be found in `/golang_client/`.  You can interact with the client from the command line:
+
+```
+> go run client.go -h
+  -a string
+        action to preform.  status, get, store
+  -f string
+        file name
+exit status 2
+```
+
+To store a file in memcache:
+`> go run client.go -a=store -f=/path/to/file/myfile.pdf`
+
+
+To get a file from the cache:
+...coming soon...
+
+---
+
+### The Ruby FileHandler and CacheBroker classes
+...coming sooon...
+
+
+
+
+---
+### Misc Notes:
 
 To generate go client files:
 
