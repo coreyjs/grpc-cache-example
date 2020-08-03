@@ -1,3 +1,6 @@
+This is an example project of connecting two distinct applications over gRPC.  
+
+
 To generate go client files:
 
 `protoc -I ../protos ../protos/cache.proto --go_out=plugins=grpc:cache`
