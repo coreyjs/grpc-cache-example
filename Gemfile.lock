@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    byebug (11.1.3)
     dalli (2.7.10)
     google-protobuf (3.12.4)
     googleapis-common-protos-types (1.0.5)
@@ -15,6 +16,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   dalli
   grpc
   grpc-tools
