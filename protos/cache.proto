@@ -16,7 +16,6 @@ message StatusResponse {
   string message = 1;
 }
 
-
 // Used for file transer
 message Chunk {
   bytes Content = 1;
