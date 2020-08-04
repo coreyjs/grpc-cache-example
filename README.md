@@ -50,12 +50,15 @@ The gRPC client in written in Go, and can be found in `/golang_client/`.  You ca
 exit status 2
 ```
 
-To store a file in memcache:
+### To store a file in memcache:
+
 `> go run client.go -a=store -f=/path/to/file/myfile.pdf`
 
 
-To get a file from the cache:
+### To get a file from the cache:
+
 `go run client.go -a=get -f=myfile.pdf`
+
 `File Location: /tmp/myfile.pdf -- md5: 61e4b830ec5baea0fa9ff430e8ddcfa7% `
  
 Note: this returns a file path location from the local system, for learning purposes only.
