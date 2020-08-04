@@ -11,6 +11,14 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "cache.StatusResponse" do
       optional :message, :string, 1
     end
+    add_message "cache.FileStatusRequest" do
+      optional :filename, :string, 1
+    end
+    add_message "cache.FileStatusResponse" do
+      optional :code, :enum, 1, "cache.FileStatusCode"
+      optional :location, :string, 2
+      optional :digest, :string, 3
+    end
     add_message "cache.Chunk" do
       optional :Content, :bytes, 1
       optional :Identifier, :string, 2
@@ -18,6 +26,10 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "cache.UploadStatus" do
       optional :Message, :string, 1
       optional :Code, :enum, 2, "cache.UploadStatusCode"
+    end
+    add_enum "cache.FileStatusCode" do
+      value :Exists, 0
+      value :CacheMiss, 1
     end
     add_enum "cache.UploadStatusCode" do
       value :Unknown, 0
@@ -30,7 +42,10 @@ end
 module Cache
   StatusRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.StatusRequest").msgclass
   StatusResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.StatusResponse").msgclass
+  FileStatusRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.FileStatusRequest").msgclass
+  FileStatusResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.FileStatusResponse").msgclass
   Chunk = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.Chunk").msgclass
   UploadStatus = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.UploadStatus").msgclass
+  FileStatusCode = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.FileStatusCode").enummodule
   UploadStatusCode = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("cache.UploadStatusCode").enummodule
 end

@@ -16,6 +16,7 @@ module Cache
 
       rpc :GetStatus, Cache::StatusRequest, Cache::StatusResponse
       rpc :Upload, stream(Cache::Chunk), Cache::UploadStatus
+      rpc :GetFile, Cache::FileStatusRequest, Cache::FileStatusResponse
     end
 
     Stub = Service.rpc_stub_class

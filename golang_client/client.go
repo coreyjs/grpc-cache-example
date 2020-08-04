@@ -117,6 +117,20 @@ func main() {
 			fmt.Printf("Status code not valid: %s", status.Code)
 		}
 
+	} else if *actionPtr == "get" {
+		fileStatusRequest := cache.FileStatusRequest{
+			Filename: *fileInputPtr,
+		}
+
+		rsp, err := client.GetFile(context.Background(), &fileStatusRequest)
+		if err != nil {
+			log.Fatalf("Error trying to get file from the server: %s", err)
+		}
+		if rsp.Code == cache.FileStatusCode_Exists {
+			fmt.Printf("File Location: %s -- md5: %s", rsp.Location, rsp.Digest)
+		} else {
+			fmt.Println("Cache miss, file DNE")
+		}
 	}
 }
 

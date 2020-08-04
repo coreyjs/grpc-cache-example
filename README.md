@@ -55,7 +55,11 @@ To store a file in memcache:
 
 
 To get a file from the cache:
-...coming soon...
+`go run client.go -a=get -f=myfile.pdf`
+`File Location: /tmp/myfile.pdf -- md5: 61e4b830ec5baea0fa9ff430e8ddcfa7% `
+ 
+Note: this returns a file path location from the local system, for learning purposes only.
+
 
 ---
 
