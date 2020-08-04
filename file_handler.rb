@@ -1,27 +1,26 @@
 require 'digest/md5'
-
 require_relative './cache_broker'
 
 
 class FileHandler
-  # This class handles the storing/retrieving the file as requsted
+  # This class handles the storing/retrieving the file as requested
 
-  def initialize(cache_broker = nil)
+  def initialize(file_obj = nil, cache_broker = nil)
     @mode = "rb"
     @chunk_size = 999
     cache_broker ||=CacheBroker.new
     @cache_broker = cache_broker
   end
 
-  def store(name, file)
-    puts "Storing File #{name}"
-    digest = get_md5(file)
+  def store(key, file_name)
+    puts "Storing File #{key}"
+    digest = get_md5(file_name)
     puts digest
 
     # begin file chunking to fit into memcache
-    chunks = chunks(file)
+    chunks = chunks(file_name)
     puts "Total File Chunks: #{chunks.length}"
-    set_in_cache(chunks: chunks, digest: digest, key: name)
+    set_in_cache(chunks: chunks, digest: digest, key: key)
   end
 
   def retrieve(name, output_file)

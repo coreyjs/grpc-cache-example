@@ -7,6 +7,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"path/filepath"
 	"time"
 
 	"github.com/coreyjs/grpc-cache-example/cache"
@@ -89,8 +90,10 @@ func main() {
 				}
 				log.Fatalf("Error reading chunk: %s", err)
 			}
+			_, fileIdentifer := filepath.Split(file.Name())
 			err = stream.Send(&cache.Chunk{
-				Content: buf[:n],
+				Content:    buf[:n],
+				Identifier: fileIdentifer,
 			})
 			if err != nil {
 				if err == io.EOF {

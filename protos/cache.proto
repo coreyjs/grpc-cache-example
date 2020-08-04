@@ -19,6 +19,7 @@ message StatusResponse {
 // Used for file transer
 message Chunk {
   bytes Content = 1;
+  string Identifier = 2;
 }
 
 enum UploadStatusCode {

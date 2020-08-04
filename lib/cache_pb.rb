@@ -13,6 +13,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     end
     add_message "cache.Chunk" do
       optional :Content, :bytes, 1
+      optional :Identifier, :string, 2
     end
     add_message "cache.UploadStatus" do
       optional :Message, :string, 1

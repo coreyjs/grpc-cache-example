@@ -7,6 +7,7 @@ class CacheBroker
   end
 
   def set_key(key, val)
+    puts "setting #{key}"
     @client.set(key, val)
   end
 
