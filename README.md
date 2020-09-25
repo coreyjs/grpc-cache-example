@@ -67,7 +67,8 @@ Note: this returns a file path location from the local system, for learning purp
 ---
 
 ### The Ruby FileHandler and CacheBroker classes
-...coming sooon...
+
+TODO:  Documentation
 
 
 
