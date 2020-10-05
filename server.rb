@@ -19,5 +19,4 @@ class CacheHubServer
   end
 end
 
-
 CacheHubServer.start
